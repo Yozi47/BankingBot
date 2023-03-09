@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Display Text Bubble on Mouse Enter using jQuery</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+        #hover-div {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 200px;
+            height: 100px;
+            background-color: #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        
+        #text-bubble {
+            position: absolute;
+            bottom: 150px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border-radius: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            display: none;
+            max-width: 250px;
+        }
+        
+        #text-bubble::before {
+            content: "";
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 10px 0 0;
+            border-color: #007bff transparent transparent transparent;
+            right: 13px;
+            bottom: -10px;
+        }
+        
+        #hover-div:hover #text-bubble {
+            display: block;
+        }
+        
+	</style>
+</head>
+<body>
+	<div id="hover-div">
+		Hover over this bot area to see the message
+		<div id="text-bubble"></div>
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('#hover-div').mouseenter(function() {
+				var text = "Hey, How can I help?";
+				$('#text-bubble').text(text).fadeIn();
+			}).mouseleave(function() {
+				$('#text-bubble').fadeOut();
+			});
+		});
+	</script>
+</body>
+<!--
+                var text = "Hello, this is a text bubble!";
+				var position = $(this).offset();
+				var width = $(this).width();
+				var height = $(this).height();
+				var bubbleWidth = $('#text-bubble').width();
+				var bubbleHeight = $('#text-bubble').height();
+				$('#text-bubble').text(text).css({
+					'left': position.left + (width/2) - (bubbleWidth/2),
+					'top': position.top + height + 10
+				}).fadeIn();
+
+-->
+
+</html>
