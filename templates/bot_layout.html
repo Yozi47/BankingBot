@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#hover-div').mouseenter(function() {
+				var text = "Hey, How can I help?";
+				$('#text-bubble').text(text).fadeIn();
+			}).mouseleave(function() {
+				$('#text-bubble').fadeOut();
+			}).click(function(){
+				window.location.href = "/chat";
+			});
+		});
+	</script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>
+</head>
+<body>
+	<div id="hover-div">
+		Hover over this bot area to see the message
+		<div id="text-bubble"></div>
+	</div>
+
+	<div class="body-content">
+		{% block content %}
+		{% endblock %}
+		<hr/>
+		<footer>
+			<p>&copy; 2023</p>
+		</footer>
+	</div>
+</body>
+
+</html>
