@@ -10,16 +10,20 @@
 				$('#text-bubble').text(text).fadeIn();
 			}).mouseleave(function() {
 				$('#text-bubble').fadeOut();
-			}).click(function(){
-				window.location.href = "/chat";
 			});
+			
+			$("#animation-container").click(function(){
+				window.location.href = "/chat";
+			})
 		});
 	</script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>
 </head>
 <body>
 	<div id="hover-div">
-		Hover over this bot area to see the message
+		<div id="animation-container">
+			<img src="{{ url_for('static', filename='picture/Banking_bot.png')}}" alt="Banking Bot">
+		</div>
 		<div id="text-bubble"></div>
 	</div>
 
