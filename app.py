@@ -3,12 +3,33 @@ from flask import render_template, request
 app = Flask(__name__)
 
 @app.route("/")
+def login():
+    return render_template("login.html")
+
+@app.route("/signup.html")
+def signup():
+    return render_template("signup.html")
+
+@app.route("/home.html")
 def home():
-    return render_template("bot_layout.html")
+    return render_template("home.html")
+
+@app.route("/eServ.html")
+def eserv():
+    return render_template("eServ.html")
+
+@app.route("/acc.html")
+def acc():
+    return render_template("acc.html")
+
 
 @app.route("/api/data")
 def get_data():
     return app.send_static_file("data.json")
+
+@app.route("/aboutUS.html")
+def about():
+    return render_template("aboutUS.html")
 
 
 @app.route("/chat", methods=['GET', 'POST'])
@@ -34,3 +55,8 @@ def get_response(question):
         return responses[question]
     else:
         return 'I am sorry, I do not understand your question'
+    
+class Chat:
+    def __init__(self, text, type):
+        self.text = text
+        self.type = type
