@@ -12,16 +12,12 @@ My Account | Online Banking Website
     </head>
 
     <body>
-        <div id="header">
-            <h1>Online Banking Website</h1>
-            <a href="home.html"><img src="../Images/logo.png" alt="Online Banking System"
-                    title="Online Banking Website"></a>
-        </div>
         <div>
             <h1>My Account</h1>
         </div>
         <div id="pic">
-            <img src="../Images/man.png">
+            <!-- <img src="../Images/man.png"> -->
+            <img src="{{ url_for('static', filename='picture/man.png')}}">
             <p>Profile Picture</p>
         </div>
         <div id="info">

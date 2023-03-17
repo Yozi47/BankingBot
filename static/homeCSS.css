@@ -1,18 +1,9 @@
 /*for Header and Login and Signup*/
-*{
-    box-sizing:border-box;
-    font-family: 'Kalam', cursive;
-}
-
-body{
-    background-color: rgb(221, 246, 248);
-    margin: 0px;
-}
 
 h1{
     text-align: center;
     font-family: 'Patua One', cursive;
-    font-weight:bolder;
+    font: weight bol 4px;;
     height:75px;
     word-spacing: 1.5px;
     letter-spacing: 5px;
@@ -21,6 +12,18 @@ h1{
     font-size:50px;
     text-shadow: 5px 5px 5px rgb(241, 186, 186);
 }
+
+*{
+    box-sizing:border-box;
+    font-family: 'Kalam', cursive;
+}
+
+body{
+    background-color: white;
+    margin: 0px;
+}
+
+
 .head{
     position: fixed;
     top:0px;

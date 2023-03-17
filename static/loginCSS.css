@@ -1,12 +1,13 @@
 @import url("../CSS/homeCSS.css");
 fieldset{
-    border-radius:25px;
+    border-radius:50px;
     padding:30px;
     background:linear-gradient(90deg, lightblue, purple);
     text-align: center;
     width:750px;
     box-shadow:5px 10px 2px 5px;
     margin:50px auto;
+    
 }
 legend{
     text-transform: uppercase;

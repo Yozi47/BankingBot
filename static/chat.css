@@ -1,21 +1,22 @@
 @import url("homeCSS.css");
 
 #chat-container {
-  position: fixed;
-  bottom: 20px;
+  position: absolute;
+  bottom: 0;
   right: 20px;
   width: 500px;
-  height: 400px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#chat-window {
+  max-height: 300px;
   overflow-y: scroll;
 }
 
 form {
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: center;
   width: 100%;
@@ -59,4 +60,38 @@ p:nth-child(odd) {
 
 p:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+#faq-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  background-color: #f2f2f2;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+#faq-section h3 {
+  margin-top: 0;
+}
+
+#faq-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#faq-section li {
+  margin-bottom: 10px;
+}
+
+#faq-section a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#faq-section a:hover {
+  text-decoration: underline;
 }

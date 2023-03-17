@@ -3,12 +3,14 @@ from flask import render_template, request
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/login.html")
 def login():
     return render_template("login.html")
 
 @app.route("/signup.html")
 def signup():
     return render_template("signup.html")
+
 
 @app.route("/home.html")
 def home():
@@ -27,9 +29,9 @@ def acc():
 def get_data():
     return app.send_static_file("data.json")
 
-@app.route("/aboutUS.html")
+@app.route("/aboutUs.html")
 def about():
-    return render_template("aboutUS.html")
+    return render_template("aboutUs.html")
 
 
 @app.route("/chat", methods=['GET', 'POST'])
