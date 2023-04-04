@@ -2,6 +2,11 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>
+
+	{% block head %} 
+	
+	{% endblock %}
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -17,9 +22,15 @@
 			})
 		});
 	</script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>
+
 </head>
 <body>
+	<div id="header" class="head">
+		<!-- <h1>Bank of AI</h1> -->
+		<a href="home.html">
+			<img src="{{ url_for('static', filename='picture/logo.jpg')}}" alt="Bank of AI">
+			</a>
+	</div>
 	<div id="hover-div">
 		<div id="animation-container">
 			<img src="{{ url_for('static', filename='picture/Banking_bot.png')}}" alt="Banking Bot">
@@ -30,10 +41,6 @@
 	<div class="body-content">
 		{% block content %}
 		{% endblock %}
-		<hr/>
-		<footer>
-			<p>&copy; 2023</p>
-		</footer>
 	</div>
 </body>
 
