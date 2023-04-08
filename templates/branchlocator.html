@@ -1,15 +1,11 @@
 <html>
   <head>
     <title>Disabling the Default UI</title>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
+<!--
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    &libraries=geometry,places
+-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='map.css')}}" />
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9oGLBRK6S_J2Kd6ejd8M-jll38MGnS-I&callback=initMap&v=weekly"
-    defer
-  ></script>
-    <script type="text/javascript" src="static\js\map.js">
-      </script>
   </head>
   <body onload="initMap()">
     <div id="map"></div>
@@ -21,6 +17,11 @@
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
+      <script type="text/javascript" src="static\js\map.js">
+    </script>
+      <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9oGLBRK6S_J2Kd6ejd8M-jll38MGnS-I&libraries=places&callback=initMap&v=weekly"
+      defer></script>
 
   </body>
 </html>
