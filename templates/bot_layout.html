@@ -2,11 +2,25 @@
 <html>
 <head>
 	<title>{% block title %}{% endblock %}</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>
-
-	{% block head %} 
-	
-	{% endblock %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bot.css')}}"/>	
+</head>
+<body>
+	<div id="header" class="head">
+		<!-- <h1>Bank of AI</h1> -->
+		<a href="home.html">
+			<img src="{{ url_for('static', filename='picture/logo.jpg')}}" alt="Bank of AI">
+			</a>
+	</div>
+	<div id="hover-div">
+		<div id="animation-container">
+			<img src="{{ url_for('static', filename='picture/Banking_bot.png')}}" alt="Banking Bot">
+		</div>
+		<div id="text-bubble"></div>
+	</div>
+	<div class="body-content">
+		{% block content %}
+		{% endblock %}
+	</div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -23,25 +37,6 @@
 		});
 	</script>
 
-</head>
-<body>
-	<div id="header" class="head">
-		<!-- <h1>Bank of AI</h1> -->
-		<a href="home.html">
-			<img src="{{ url_for('static', filename='picture/logo.jpg')}}" alt="Bank of AI">
-			</a>
-	</div>
-	<div id="hover-div">
-		<div id="animation-container">
-			<img src="{{ url_for('static', filename='picture/Banking_bot.png')}}" alt="Banking Bot">
-		</div>
-		<div id="text-bubble"></div>
-	</div>
-
-	<div class="body-content">
-		{% block content %}
-		{% endblock %}
-	</div>
 </body>
 
 </html>

@@ -44,6 +44,10 @@ def chatbot():
         chats.append(Chat(response, 'response'))
     return render_template('chatbot.html', chats=chats) # pass chats list to template
 
+@app.route("/branchlocator.html")
+@app.route("/locate")
+def locate():
+    return render_template("branchlocator.html")
 
 def get_response(question):
     responses = {
