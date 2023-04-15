@@ -6,7 +6,7 @@ function initMap() {
         console.log(lat,lng)
         // Do something with the coordinates
         const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
+            zoom: 12,
             center: { lat, lng },
             disableDefaultUI: true,
         });
@@ -22,7 +22,7 @@ function initMap() {
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
         location: {lat, lng},
-        radius: 1000,
+        radius: 3000,
         type: "bank"
         }, 
         function(results, status) {
