@@ -63,8 +63,35 @@ function initMap() {
                     window.alert('Directions request failed due to ' + status);
                 }
                 });
+                            
             });
             //console.log(marker);
+            marker.addListener('click', function() {
+                // create a DistanceMatrixService object
+                var distanceService = new google.maps.DistanceMatrixService();
+
+                // define the marker location and the user's location
+                var markerLocation = this.getPosition();
+                var userLocation = {lat, lng};
+
+                // call the Distance Matrix API with the marker and user locations
+                distanceService.getDistanceMatrix({
+                origins: [userLocation],
+                destinations: [markerLocation],
+                travelMode: 'DRIVING',
+                unitSystem: google.maps.UnitSystem.IMPERIAL,
+                }, function(response, status) {
+                // parse the JSON response to get the travel time value
+                var travelTime = response.rows[0].elements[0].duration.text;
+
+                // display the travel time value on the marker's infowindow or as a separate element on the map
+                var infowindow = new google.maps.InfoWindow({
+                    content: 'Travel time: ' + travelTime
+                });
+                infowindow.setPosition(markerLocation)
+                infowindow.open(map);
+                });
+            });
             }
         }
         });
