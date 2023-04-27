@@ -21,9 +21,11 @@ with open('label_encoder.pickle', 'rb') as enc:
 # parameters
 max_len = 20
 
+output_file_path = 'C://Users/zelal/OneDrive/Desktop/ClassFolders/CIS630Project/Dataset2.json'
+
 # load intents from JSON file
-with open('Dataset2.json', 'r') as json_file:
-    data = json.load(json_file)
+with open(output_file_path, 'r') as json_file:
+    data2 = json.load(json_file)
 
 # chat function
 def chat(inp):

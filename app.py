@@ -62,3 +62,6 @@ class Chat:
     def __init__(self, text, type):
         self.text = text
         self.type = type
+
+if __name__ == "__main__":
+    app.run()
