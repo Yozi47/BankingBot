@@ -51,9 +51,29 @@
 			if (questions.length == 0) {
 				return "Hello, how can I help you today?"
 			}
-  			else if (userInput.toLowerCase().includes("hello")) {
+  			if (userInput.toLowerCase().includes("hello")) {
     			return "Hi there!";
-  			 else {
+  			} else if (userInput.toLowerCase().includes("If my account is blocked how do I unblock it")) {
+    			return "If your account gets blocked, please contact your nearest Customer Call Centre (for Credit Cards) and PhoneBanking centre (for Debit Cards).";
+  			} else if (userInput.toLowerCase().includes("how are you")) {
+    			return "I'm a chatbot, I don't have feelings, but thanks for asking!";
+  			} else if (userInput.toLowerCase().includes("What is Guarantor")) {
+    			return "A Guarantor is a person who guarantees to pay for someone else's debt if he or she should default on a loan obligation.";
+  			} else if (userInput.toLowerCase().includes("What is pledge")) {
+    			return "A right over the security is created in favour of HDFC Bank. Hence shares cannot be transferred or sold by the customer or shareholder.";
+  			} else if (userInput.toLowerCase().includes("How long will it take to process the loan")) {
+    			return "The loan gets processed within 48 hours of completing documentation.";
+  			} else if (userInput.toLowerCase().includes("Can I transfer my Current Account from one branch to another")) {
+    			return "Yes, Current Accounts can be transferred from one branch to another. However, there are certain restrictions. Please visit your nearest branch for details.";
+  			} else if (userInput.toLowerCase().includes("How long will it take to update a change of address")) {
+    			return "Your mailing address will be updated within 7 working days once the application, with any supporting documents, is received and found to be in order. The change in address will also be confirmed through system generated mailers sent to the old as well as the new addresses. If you do not receive any update after the stipulated time mentioned above, we request you to Contact Us with the following details in order to enable us to assist you further: The date when you submitted your request The complete Branch address where the request was submitted. Click here to see details of all our bank branches The name of the executive and complete address of the executive’s source branch, if the form is handed over to an executive";
+  			} else if (userInput.toLowerCase().includes("How Do I Change or Add my Mobile Number")) {
+    			return "We request you to follow the procedure mentioned below to change your Mobile Number Step 1) Fill the application form available at the Branch (duly signed by all the holders). Step 2) If you are unable to visit an HDFC Bank Branch, you can send the form by post or courier. Note / Important: Instruction received through Net Banking, or scan copy, fax or email will not be processed for security and authentication purpose. Updates for InstaAlerts and / or Mobile Banking (if registered) need to be done separately. InstaAlerts Updates: Please submit your requirement at your nearest branch, through a written letter duly signed by all account holders. In case you are unable to visit a branch, you can send the letter by post or courier. Mobile Banking Updates/InstaQuery Updates: Please cancel InstaQuery on your old number and then re-register for InstaQuery on your new number by following the process mentioned below: Log in to Net Banking with your Customer Identification Number and NetBanking Password (IPIN). Click on InstaQuery Registration in the top right hand corner Select De-register for InstaQuery from the left hand side menu From the list shown, select the mobile number that needs to be de-registered Click on ‘Continue’ Select ‘Confirm’ Your InstaQuery de-registration request will be processed online Subsequently, you need to re-register for InstaQuery on the new number as below: Log in to NetBanking with your Customer Identification Number and NetBanking Password (IPIN). Click on InstaQuery Registration on the top right hand corner Select Subscribe for InstaQuery from the left hand side menu Choose your Account Number from the list of all accounts linked to your Customer Identification number. (All the account level transactions will be effective for the Primary Account selected by you at the time of registration. The primary account can be changed at a later stage using the 'Change Primary Account' facility in InstaQuery.) Provide your 10 digit mobile number along with the country code. Note that all Reliance CDMA customers need to provide a 10 digit mobile number only, without the country code. Click on the Check box which states ‘I accept Terms and Conditions’. Click on ‘Confirm’. Your request will be processed online. Alternatively, please submit the e-age banking form to a branch to avail of the InstaQuery facility. The form is available on www.hdfcbank.com, Please check for the availability of the service with your cellular service provider. View more";
+  			} else if (userInput.toLowerCase().includes("how are you")) {
+    			return "I'm a chatbot, I don't have feelings, but thanks for asking!";
+  			} else if (userInput.toLowerCase().includes("how are you")) {
+    			return "I'm a chatbot, I don't have feelings, but thanks for asking!";
+  			} else {
     			return "I'm sorry, I don't understand.";
   			}
 		}
