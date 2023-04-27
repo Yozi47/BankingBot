@@ -3,6 +3,9 @@ from flask import render_template, request
 app = Flask(__name__)
 
 @app.route("/")
+def landingpage():
+    return render_template("new_home.html")
+
 @app.route("/login.html")
 def login():
     return render_template("login.html")
@@ -10,7 +13,6 @@ def login():
 @app.route("/signup.html")
 def signup():
     return render_template("signup.html")
-
 
 @app.route("/home.html")
 def home():
