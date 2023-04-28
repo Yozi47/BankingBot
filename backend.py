@@ -2,8 +2,9 @@ from flask import Flask, render_template, request
 import json 
 import numpy as np
 from tensorflow import keras
-# from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder
 import pickle
+import random
 
 app = Flask(__name__)
 
@@ -21,6 +22,7 @@ with open('label_encoder.pickle', 'rb') as enc:
 # parameters
 max_len = 20
 
+output_file_path = 'C://Users/zelal/OneDrive/Desktop/ClassFolders/CIS630Project/Dataset2.json'
 # load intents from JSON file
 with open(output_file_path, 'r') as json_file:
     data = json.load(json_file)

@@ -1,32 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+	<title>Banking Website - User Registration</title>
+	<style>
+		body {
+			background-color: #6daee0;
+		}
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sign Up | Bank of AI</title>
-        <link href="../CSS/signupCSS.css" rel="stylesheet">
-        <script src="../Java Script/signupJS.js"></script>
-    </head>
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 50px;
+			font-size: 36px;
+			color: #444444;
+		}
 
-    <body onload="load();">
-        <form  method="POST">
-            <fieldset>
-                <legend>Sign Up</legend>
-                <input type="text" id="name" placeholder="Enter your Name:"><br />
-                <input type="text" id="username" placeholder="Enter valid Username:"
-                    onblur="return validUserName();"><br />
-                <input type="email" id="email" placeholder="Enter your Email Address:"><br />
-                <input type="password" id="password" placeholder="Password:" onblur="return validPassword();"><br />
-                <input type="password" id="confirmPassword" placeholder="Confirm Password:"
-                    onblur="return cnfrmPass();"><br />
-                <p id="result"></p>
-                <p><input type="checkbox" name="tnc" id="tnc" onchange="return validForm();"><span>I agree to the <a
-                            href="#">Term and Conditions</a></span></p>
-                <button type="button" id="signupbtn" value="0" onclick="goto();">Sign Up</button>
-                <button type="reset" id="resetbtn">Reset</button>
-            </fieldset>
-        </form>
-    </body>
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: #ffffff;
+			padding: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
 
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #444444;
+			font-size: 18px;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		select {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #cccccc;
+			border-radius: 5px;
+			font-size: 18px;
+			color: #444444;
+		}
+
+		input[type="checkbox"] {
+			display: inline-block;
+			margin-right: 10px;
+			vertical-align: middle;
+		}
+
+		input[type="submit"] {
+			background-color: #3b9bd9;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #347ac9;
+		}
+	</style>
+</head>
+<body>
+	<h1>User Registration</h1>
+	<form action="register.php" method="post">
+		<label for="firstname">First Name:</label>
+		<input type="text" id="firstname" name="firstname" required>
+
+		<label for="lastname">Last Name:</label>
+		<input type="text" id="lastname" name="lastname" required>
+
+		<label for="email">Email Address:</label>
+		<input type="email" id="email" name="email" required>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+
+		<label for="confirm_password">Confirm Password:</label>
+		<input type="password" id="confirm_password" name="confirm_password" required>
+
+		<label for="account_type">Account Type:</label>
+		<select id="account_type" name="account_type" required>
+			<option value="">-- Select Account Type --</option>
+			<option value="savings">Savings Account</option>
+			<option value="checking">Checking Account</option>
+		</select>
+
+		<label for="terms_and_conditions">
+			<input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" required>
+			I agree to the terms and conditions
+		</label>
+
+		<input type="submit" value="Register">
+	</form>
+</body>
 </html>

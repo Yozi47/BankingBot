@@ -4,6 +4,7 @@ import numpy as np
 from tensorflow import keras
 from sklearn.preprocessing import LabelEncoder
 import pickle
+import random
 
 app = Flask(__name__)
 
@@ -33,7 +34,7 @@ def chat(inp):
                                              truncating='post', maxlen=max_len))
     tag = lbl_encoder.inverse_transform([np.argmax(result)])
 
-    for i in data['intents']:
+    for i in data2['intents']:
         if i['tag'] == tag:
             return random.choice(i['responses'])
 

@@ -1,32 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Login Page </title>
+<style>
+Body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background-color: #6daee0;
+}
+button {
+       background-color: #6daee0;
+       width: 100%;
+        color: rgb(5, 5, 5);
+        padding: 15px;
+        margin: 10px 0px;
+        border: none;
+        cursor: pointer;
+         }
+ form {
+        border: 3px solid #f1f1f1;
+        max-width: 400px;
+        width: 100%;
+        margin: auto;
+        height: 350px;
+        padding: 20px;
+    }
+ input[type=text], input[type=password] {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px 20px;
+        display: inline-block;
+        border: 2px solid rgb(7, 7, 7);
+        box-sizing: border-box;
+    }
+ button:hover {
+        opacity: 0.7;
+    }
+  .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        margin: 10px 5px;
+    }
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Login | Online Banking Website</title>
-        <link href="../CSS/loginCSS.css" rel="stylesheet">
-        <script src="../Java Script/loginJS.js"></script>
-    </head>
 
-    <body onload="load();">
-        <div id="header">
-            <!-- <h1>Bank of AI</h1> -->
-            <a href="home.html"><img src="{{ url_for('static', filename='picture/logo.jpg')}}" alt="Online Banking Website"
-                    title="Online Banking Website"></a>
+ .container {
+        padding: 25px;
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+    <center> <h1> User Login </h1> </center>
+    <form>
+        <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me
+            <button type="button" class="cancelbtn"> Cancel</button>
+            Forgot <a href="#"> password? </a>
         </div>
-        <form method="POST">
-            <fieldset>
-                <legend>Login</legend>
-                <input type="email" placeholder="Enter your Email Address:" id="email"><br />
-                <p>OR</p>
-                <input type="text" placeholder="Enter your Account Number:" id="accno"><br />
-                <input type="password" accept="number" placeholder="Enter your Password:" id="password"
-                    onblur="return validForm();"><br />
-                <p id="result"></p>
-                <button type="button" id="loginbtn" value="0" onclick="goto();">Login In</button>
-                <button type="reset" id="resetbtn">Reset</button>
-            </fieldset>
-        </form>
-    </body>
-
+    </form>
+</body>
 </html>

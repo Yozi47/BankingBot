@@ -1,8 +1,16 @@
 from flask import Flask
 from flask import render_template, request
+import pickle
+import random
+import keras
+import numpy as np
+import json
+
 app = Flask(__name__)
 
 @app.route("/")
+def welcome():
+    return render_template("landingPage.html")
 @app.route("/login.html")
 def login():
     return render_template("login.html")
@@ -33,6 +41,36 @@ def get_data():
 def about():
     return render_template("aboutUs.html")
 
+# load trained model
+model = keras.models.load_model('chat_model')
+
+output_file_path = 'C://Users/zelal/OneDrive/Desktop/ClassFolders/CIS630Project/Dataset2.json'
+
+with open(output_file_path, 'r') as json_file:
+    data2 = json.load(json_file)
+
+# load tokenizer object
+with open('tokenizer.pickle', 'rb') as handle:
+    tokenizer = pickle.load(handle)
+
+# load label encoder object
+with open('label_encoder.pickle', 'rb') as enc:
+    lbl_encoder = pickle.load(enc)
+
+# parameters
+max_len = 20
+
+def chatbot(question):
+
+    result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([question]),
+                                                                      truncating='post', maxlen=max_len))
+    tag = lbl_encoder.inverse_transform([np.argmax(result)])
+
+    for i in data2['intents']:
+        if i['tag'] == tag:
+            return random.choice(i['responses'])
+    return "Sorry, I don't understand that."
+
 
 @app.route("/chat", methods=['GET', 'POST'])
 def chatbot():
@@ -42,21 +80,13 @@ def chatbot():
         response = get_response(question)
         chats.append(Chat(question, 'question'))
         chats.append(Chat(response, 'response'))
-    return render_template('chatbot.html', chats=chats) # pass chats list to template
+    return render_template('chatbot.html', chats=chats)  # pass chats list to template
+
 
 
 def get_response(question):
-    responses = {
-        'What is your name?': 'My name is Chatbot',
-        'What is the weather like today?': 'I am sorry, I am not programmed to provide weather forecasts',
-        'What time is it?': 'I am sorry, I am not programmed to provide time information',
-        'How are you?': 'I am doing well, thank you for asking!'
-    }
-    # Retrieve the response from the dictionary
-    if question in responses:
-        return responses[question]
-    else:
-        return 'I am sorry, I do not understand your question'
+    response = chatbot(question)
+    return response
     
 class Chat:
     def __init__(self, text, type):
