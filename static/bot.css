@@ -17,12 +17,12 @@
     bottom: 120px;
     right: 20px;
     background-color: #007bff;
-    color: #fff;
+    color: #e06f6f;
     padding: 10px;
     border-radius: 20px;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(149, 13, 13, 0.3);
     display: none;
     max-width: 250px;
 }
