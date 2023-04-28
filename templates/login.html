@@ -22,7 +22,7 @@ button {
         max-width: 400px;
         width: 100%;
         margin: auto;
-        height: 350px;
+        height: 400px;
         padding: 20px;
     } 
  input[type=text], input[type=password] { 
@@ -47,6 +47,11 @@ button {
         padding: 25px; 
         background-color: lightblue;
     } 
+    .error {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+    }
 </style> 
 </head>  
 <body>  
@@ -56,12 +61,33 @@ button {
             <label>Username : </label> 
             <input type="text" placeholder="Enter Username" name="username" required>
             <label>Password : </label> 
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <input type="password" placeholder="Enter Password" name="password" pattern=".{8,}" title="Password must be at least 8 characters" required>
             <button type="submit">Login</button> 
             <input type="checkbox" checked="checked"> Remember me 
             <button type="button" class="cancelbtn"> Cancel</button> 
+            <p class="error" style="display:none;">Incorrect username or password.</p>
             Forgot <a href="#"> password? </a> 
         </div> 
-    </form>   
+    </form>
+    
+    <script>
+        const form = document.querySelector('form');
+        const error = document.querySelector('.error');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = form.username.value;
+            const password = form.password.value;
+
+            // Check if username and password are correct
+            if (username === 'myusername' && password === 'mypassword') {
+                // Login successful, redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                // Display error message
+                error.style.display = 'block';
+            }
+        });
+    </script>   
 </body>   
 </html>
